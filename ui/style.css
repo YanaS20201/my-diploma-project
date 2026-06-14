@@ -18,6 +18,7 @@
 }
 
 body {
+    zoom: 85%;
     margin: 0;
     padding: 32px;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
