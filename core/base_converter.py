@@ -1,7 +1,7 @@
 ﻿from typing import List, Dict, Any
 from fractions import Fraction
 
-from core.models import StepModel  # Synchronized with openapi.json and pipeline
+from core.models import StepModel
 from core.converters.integer_converter import IntegerBaseConverter
 from core.converters.fractional_converter import FractionalConverter
 from core.analysis.precision_analyzer import PrecisionAnalyzer
