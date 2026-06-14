@@ -1,4 +1,4 @@
-﻿import { getAllowedChars, validateInput } from "./utils.js";
+import { getAllowedChars, validateInput } from "./utils.js";
 
 export function updateAllowedCharsHint() {
     const base = parseInt(
@@ -335,21 +335,21 @@ function renderIntegerDivision(step, container, targetBase) {
                     ${divisionHtml}
                 </div>
             </div>
-            
-            <div class="division-explanation" style="margin-top: 20px; border-top: 1px dashed #cbd5e1; padding-top: 16px; text-align: left;">
-                <ul style="list-style: none; padding: 0; margin: 0; line-height: 1.6; font-size: 1.05rem;">
-                    <li style="margin-bottom: 8px;">
+        
+            <div class="division-explanation" style="margin-top: 14px; border-top: 1px dashed #cbd5e1; padding-top: 12px; text-align: left;">
+                <ul style="list-style: none; padding: 0; margin: 0; line-height: 1.5; font-size: 0.92rem;">
+                    <li style="margin-bottom: 6px;">
                         • Ділимо <span style="font-weight: bold; color: #1e293b;">${currentDividend}</span> на основу <span style="color: #4f46e5; font-weight: bold;">${targetBase}</span>.
                     </li>
-                    <li style="margin-bottom: 8px;">
+                    <li style="margin-bottom: 6px;">
                         • Отримуємо остачу <span style="color: #ea580c; font-weight: bold;">${currentRemainder}</span>. Це наступна цифра результату (записуємо її <strong>справа наліво</strong>).
                     </li>
-                    <li style="margin-bottom: 4px;">
+                    <li style="margin-bottom: 3px;">
                         • Нова частка <span style="color: #16a34a; font-weight: bold;">${currentQuotient}</span> стає числом, яке ми будемо ділити на наступному кроці.
                     </li>
                 </ul>
-                
-                ${isLastStep ? `<p style="color: #059669; font-weight: bold; margin-top: 16px; text-align: center; font-size: 1.05rem;">✓ Оскільки частка дорівнює 0, ділення цілої частини завершено!</p>` : ''}
+            
+                ${isLastStep ? `<p style="color: #059669; font-weight: bold; margin-top: 12px; text-align: center; font-size: 0.95rem;">✓ Оскільки частка дорівнює 0, ділення цілої частини завершено!</p>` : ''}
             </div>
         </div>
     `;
@@ -381,27 +381,27 @@ function renderFractionMultiplication(step, container, targetBase) {
     const wrapper = document.createElement("div");
     wrapper.className = "visualization-wrapper";
     wrapper.innerHTML = `
-        <div class="fraction-visual" style="line-height: 1.6; width: 100%;">
+        <div class="fraction-visual" style="line-height: 1.5; width: 100%;">
             <div>Множимо дробову частину: <strong>${fraction}</strong></div>
             
-            <div style="margin: 15px 0; padding: 12px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; font-family: monospace; font-size: 1.2rem;">
+            <div style="margin: 12px 0; padding: 10px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; font-family: monospace; font-size: 1.05rem;">
                 ${fraction} × <span style="color: #4f46e5; font-weight: bold;">${targetBase}</span> = 
-                <span style="color: #ea580c; font-weight: bold; font-size: 1.3rem;">${digit}</span> + ${newFraction}
+                <span style="color: #ea580c; font-weight: bold; font-size: 1.15rem;">${digit}</span> + ${newFraction}
             </div>
             
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; text-align: left;">
-                <div style="border-left: 3px solid #ea580c; padding-left: 10px;">
-                    <span style="font-size: 0.9rem; color: #64748b;">Результат кроку:</span><br>
-                    Цифра <strong style="color:#ea580c; font-size: 1.15rem;">${digit}</strong>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: left;">
+                <div style="border-left: 3px solid #ea580c; padding-left: 8px;">
+                    <span style="font-size: 0.82rem; color: #64748b;">Результат кроку:</span><br>
+                    Цифра <strong style="color:#ea580c; font-size: 1rem;">${digit}</strong>
                 </div>
-                <div style="border-left: 3px solid #4f46e5; padding-left: 10px;">
-                    <span style="font-size: 0.9rem; color: #64748b;">На наступний крок:</span><br>
+                <div style="border-left: 3px solid #4f46e5; padding-left: 8px;">
+                    <span style="font-size: 0.82rem; color: #64748b;">На наступний крок:</span><br>
                     Дріб <strong>${newFraction}</strong>
                 </div>
             </div>
             
             ${isLastFractionStep ?
-            `<p style="color: #059669; font-weight: bold; margin-top: 16px; text-align: center; font-size: 1.05rem;">✓ Перетворення завершено<br>(дробова частина стала 0)!</p>` : ''}
+            `<p style="color: #059669; font-weight: bold; margin-top: 12px; text-align: center; font-size: 0.95rem;">✓ Перетворення завершено<br>(дробова частина стала 0)!</p>` : ''}
         </div>
     `;
     container.appendChild(wrapper);
@@ -524,8 +524,8 @@ export function checkBaseLimits(inputElement) {
         hintBlock = document.createElement('div');
         hintBlock.className = 'base-limit-hint';
         hintBlock.style.color = '#e67e22';
-        hintBlock.style.fontSize = '0.85em';
-        hintBlock.style.marginTop = '4px';
+        hintBlock.style.fontSize = '0.8em';
+        hintBlock.style.marginTop = '3px';
         hintBlock.style.display = 'none';
         inputElement.parentNode.appendChild(hintBlock);
     }
