@@ -40,6 +40,13 @@ async def serve_frontend():
         content={"error": "Файл index.html не знайдено в папці ui. Перевірте структуру проєкту."}
     )
 
+@app.get("/favicon.ico", include_in_schema=False)
+async def favicon():
+    favicon_path = os.path.join("ui", "favicon.ico")
+    if os.path.exists(favicon_path):
+        return FileResponse(favicon_path)
+    return Response(status_code=204)
+
 converter = BaseNumberConverter()
 
 def ensure_json_safe(obj: Any) -> Any:
