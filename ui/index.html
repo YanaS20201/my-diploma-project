@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Система конвертації та аналізу чисел з дробовою частиною</title>
+    <link rel="stylesheet" href="ui/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <h1>Перетворення чисел у позиційних системах числення</h1>
+
+    <section class="input-section">
+        <h2>Вхідні параметри</h2>
+        <div class="input-form">
+            <label>
+                Вхідне число:
+                <input type="text"
+                       id="value"
+                       placeholder="Наприклад: A3.F"
+                       value="12.375" />
+            </label>
+
+
+            <label>
+                Вхідна система числення:
+                <input type="number"
+                       id="sourceBase"
+                       value="10"
+                       min="1"
+                       max="37" />
+            </label>
+
+
+            <label>
+                Вихідна система числення:
+                <input type="number"
+                       id="targetBase"
+                       value="2"
+                       min="1"
+                       max="37" />
+            </label>
+
+
+            <label>
+                Кількість значень після коми:
+                <input type="number"
+                       id="precision"
+                       value="10"
+                       min="0"
+                       max="50" />
+            </label>
+
+
+            <div class="input-hints">
+                <div id="allowed-chars-hint" class="hint"></div>
+                <div id="example-hint" class="hint"></div>
+            </div>
+        </div>
+
+        <button type="button" class="main-btn" onclick="convert()">Перетворити</button>
+    </section>
+
+    <hr>
+
+    <div id="error-box" class="error-box" style="display:none;"></div>
+
+    <div id="results-wrapper" hidden>
+        <section class="result-section">
+            <h2>Результат розрахунку</h2>
+
+            <div id="conversion-result" class="result-box">
+                <div id="input-number"></div>
+                <div id="output-number"></div>
+                <div id="exactness"></div>
+            </div>
+        </section>
+
+        <button type="button" id="toggle-details" class="details-btn">Детальніше ↓</button>
+
+        <div id="details-section" style="display: none;">
+
+            <section id="decimal-conversion-block" class="conversion-block">
+                <h3>Перетворення в десяткову систему</h3>
+
+                <div class="decimal-formula">
+                    <code id="decimal-conversion-formula"></code>
+                </div>
+
+                <div class="decimal-result">
+
+                    <div class="result-label">
+                        Значення в десятковій системі
+                    </div>
+
+                    <strong id="decimal-result-value"></strong>
+
+                </div>
+
+                <p class="decimal-explanation">
+                    Кожна цифра послідовно множиться на основу вихідної системи числення в степені,
+                    що дорівнює номеру її позиції.
+                    Додавання цих добутків дає остаточний результат у десятковій системі.
+                </p>
+            </section>
+
+
+            <section class="process-section">
+
+                <div class="current-step-panel">
+
+                    <h3>Візуалізація кроків</h3>
+
+                    <div class="controls">
+                        <button type="button" onclick="prevStep()">← Назад</button>
+                        <span id="step-counter"></span>
+                        <button type="button" onclick="nextStep()">Вперед →</button>
+                    </div>
+
+                    <div class="live-result-panel">
+                        <div class="live-result-label">
+                            Поточний результат
+                        </div>
+
+                        <div id="live-result-value">
+                            —
+                        </div>
+                    </div>
+
+                    <div id="division-visualization"></div>
+                </div>
+
+                <div class="history-panel">
+                    <h3>Журнал проміжних обчислень</h3>
+                    <div class="table-container">
+
+                        <h4>Ціла частина</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ділене</th>
+                                    <th>Основа</th>
+                                    <th>Частка</th>
+                                    <th>Остача</th>
+                                </tr>
+                            </thead>
+                            <tbody id="integer-steps"></tbody>
+                        </table>
+
+                        <h4>Дробова частина</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Поточний дріб</th>
+                                    <th>Основа</th>
+                                    <th>Отримана цифра</th>
+                                    <th>Новий дріб</th>
+                                </tr>
+                            </thead>
+                            <tbody id="fraction-steps"></tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </div>
+    <script type="module" src="ui/app.js"></script>
+
+</body>
+</html>
