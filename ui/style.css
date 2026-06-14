@@ -480,7 +480,7 @@ button {
     position: sticky;
     top: 20px;
     align-self: start;
-    height: 620px;
+    height: 720px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -493,7 +493,7 @@ button {
     border-radius: 14px;
     padding: 20px;
     box-shadow: var(--shadow, 0 10px 25px rgba(0,0,0,0.03));
-    height: 620px;
+    height: 720px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
