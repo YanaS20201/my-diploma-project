@@ -29,7 +29,6 @@ export function updateAllowedCharsHint() {
 
         allowedText = `0–9, A–${lastLetter}`;
     }
-
     hintBox.innerHTML =
         `Дозволені символи для вхідного числа: <strong>${allowedText}</strong>`;
 }
