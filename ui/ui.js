@@ -31,7 +31,7 @@ export function updateAllowedCharsHint() {
     }
 
     hintBox.innerHTML =
-        `Дозволені символи: <strong>${allowedText}</strong>`;
+        `Дозволені символи для вхідного числа: <strong>${allowedText}</strong>`;
 }
 
 export function updateExampleHint() {
