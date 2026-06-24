@@ -269,7 +269,7 @@ function renderRoundingStep(step, container, targetBase) {
     wrapper.className = "visualization-wrapper";
     wrapper.innerHTML = `
         <div class="rounding-visual" style="line-height:1.6;">
-            <p>Виконуємо округлення (Round-Half-Up).</p>
+            <p>Виконуємо округлення</p>
             <p>Цифри до округлення: <strong>${before.join("")}</strong></p>
             <p>Цифри після округлення: <strong>${after.join("")}</strong></p>
             <p>Перенос у цілу частину: <strong>${carry}</strong></p>
